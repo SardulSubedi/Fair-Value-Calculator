@@ -1,0 +1,34 @@
+﻿---
+description: Use this repo's installed Agent Skills under .agents/skills (see skills-lock.json) when implementing or reviewing code.
+alwaysApply: true
+---
+
+# Project Agent Skills (required workflow)
+
+This repository vendors Agent Skills under `.agents/skills/`. The pinned set and sources are recorded in `skills-lock.json` at the repo root.
+
+## When to read which skill
+
+Before making **non-trivial** changes, **read the relevant `SKILL.md` first** (use the Read tool), then follow it for the rest of that task:
+
+| Skill | Path | Use when |
+| --- | --- | --- |
+| Next.js best practices | `.agents/skills/next-best-practices/SKILL.md` | App Router files, RSC boundaries, async APIs, routing, metadata, errors |
+| Vercel React best practices | `.agents/skills/vercel-react-best-practices/SKILL.md` | React/Next performance, data fetching, bundle size, rerenders |
+| Web Interface Guidelines | `.agents/skills/web-design-guidelines/SKILL.md` | UI/UX review, accessibility, interaction polish |
+| shadcn/ui | `.agents/skills/shadcn/SKILL.md` | Adding or changing UI components, forms, dialogs, charts, styling tokens |
+| Node.js backend patterns | `.agents/skills/nodejs-backend-patterns/SKILL.md` | Route Handlers, server modules, validation, caching, security boundaries |
+| TypeScript advanced types | `.agents/skills/typescript-advanced-types/SKILL.md` | Shared types, generics, inference-heavy or financial-domain modeling |
+| Playwright best practices | `.agents/skills/playwright-best-practices/SKILL.md` | E2E tests, fixtures, locators, CI |
+| Frontend design (Anthropic) | `.agents/skills/frontend-design/SKILL.md` | **Optional**: distinctive marketing or one-off surfaces; avoid fighting shadcn on core app chrome |
+| UI/UX Pro Max | `.agents/skills/ui-ux-pro-max/SKILL.md` | Layout/flow heuristics; defer to shadcn + Web Guidelines when they conflict |
+
+## Depth rules
+
+- **Vercel React**: for a specific issue (e.g. waterfall), open the matching rule file under `.agents/skills/vercel-react-best-practices/rules/` as needed.
+- **Next**: follow links from `SKILL.md` to the referenced `.md` files in the same folder.
+- **shadcn**: use the project shadcn CLI and aliases from `web/components.json` once initialized; do not guess component APIs—use `npx shadcn@latest docs …` per the skill.
+
+## Do not relocate skills casually
+
+Keep skill content in **`.agents/skills/`** so `skills-lock.json` stays the single inventory. If tooling ever requires `.cursor/skills/`, prefer **documentation + rules** (this file) rather than duplicating skill trees.
