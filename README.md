@@ -14,5 +14,10 @@ npm install
 npm run dev
 ```
 
-Configuration uses environment variables (see the project plan: free SEC `data.sec.gov` fundamentals for US tickers, optional free-tier enrichers, and your own AI keys via `.env.local`).
+Configuration (copy [`web/.env.example`](web/.env.example) to `web/.env.local`):
+
+- `SEC_DATA_USER_AGENT` — required by SEC policy for `data.sec.gov` calls.
+- `AI_API_KEY`, `AI_MODEL`, optional `AI_BASE_URL` — for `/api/ai/assumptions` (hybrid cited/inferred JSON).
+
+API routes live under `web/src/app/api/` (`/api/market`, `/api/valuation/run`, `/api/valuation/auto-methods`, `/api/ai/assumptions`).
 
